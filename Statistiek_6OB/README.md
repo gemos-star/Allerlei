@@ -15,5 +15,5 @@ Opnieuw bouwen (vereist pandoc, python-docx, matplotlib, scipy):
 
 ## Examen (75 minuten, beide hoofdstukken)
 
-- `Examen_Statistiek_6OB.docx` (40 punten) en `Verbetersleutel_Examen_Statistiek_6OB.docx`
+- `Examen_Statistiek_6OB.docx` (50 punten) en `Verbetersleutel_Examen_Statistiek_6OB.docx`
 - Bron: `bron/examen.tex`; bouwen met `bash bron/bouw_examen.sh`
