@@ -92,6 +92,14 @@ for tbl in doc.tables:
         sp=OxmlElement("w:p"); ppr=OxmlElement("w:pPr"); s=OxmlElement("w:spacing"); s.set(qn("w:before"),"0"); s.set(qn("w:after"),"0"); s.set(qn("w:line"),"140"); s.set(qn("w:lineRule"),"exact"); ppr.append(s); sp.append(ppr)
         tbl._tbl.addnext(sp)
 
+# vraagkoppen (tabellen met één rij): bij de volgende tekst houden en ruimte ervoor
+for tbl in doc.tables:
+    if len(tbl.rows)==1 and box_style(tbl) not in BOX:
+        for cell in tbl.rows[0].cells:
+            for p in cell.paragraphs: p.paragraph_format.keep_with_next=True
+        sp=OxmlElement("w:p"); ppr=OxmlElement("w:pPr"); s=OxmlElement("w:spacing"); s.set(qn("w:before"),"0"); s.set(qn("w:after"),"0"); s.set(qn("w:line"),"200"); s.set(qn("w:lineRule"),"exact"); ppr.append(s); sp.append(ppr)
+        tbl._tbl.addprevious(sp)
+
 # taal en koptekst/voettekst
 styles_el=doc.styles.element
 rpd=styles_el.find(qn("w:docDefaults"))

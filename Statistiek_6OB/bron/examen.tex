@@ -1,0 +1,330 @@
+\documentclass{article}
+% Examen Statistiek 6OB (75 minuten) - LaTeX-bron, met pandoc naar Word
+\newcommand{\lijn}{\par LIJN\par}
+\newcommand{\gat}[1]{\textsc{#1}}
+\newcommand{\pagina}{\par PAGEBREAK\par}
+\newcommand{\breedtes}[1]{\par BREEDTE:#1\par}
+
+\begin{document}
+
+\begin{banner}
+EXAMEN WISKUNDE \quad·\quad 6 OPVOEDING EN BEGELEIDING
+\end{banner}
+
+\begin{titel}
+Examen Statistiek
+\end{titel}
+
+\begin{ondertitel}
+Basisbegrippen in de statistiek · Kengetallen · Normale verdeling
+\end{ondertitel}
+
+\textbf{Tijdsduur:} 75 minuten – \textbf{Totaal:} \_\_\_ / 40
+
+\textbf{Naam:} \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_ \quad \textbf{Klas:} \_\_\_\_\_\_\_\_\_\_\_\_\_ \quad \textbf{Datum:} \_\_\_\_\_\_\_\_\_\_\_\_\_
+
+\begin{letop}
+\textbf{1.} Werk nauwkeurig en ordelijk.
+
+\textbf{2.} Gebruik een kladblad. Schrijf je naam op het kladblad.
+
+\textbf{3.} Lees elke vraag aandachtig.
+
+\textbf{4.} Noteer je berekeningen en redeneringen. Een antwoord zonder werkwijze krijgt niet alle punten.
+
+\textbf{5.} Je mag je rekentoestel én GeoGebra of Excel gebruiken. Bij kansvragen noteer je het model, een schets met de gearceerde oppervlakte en een antwoordzin.
+
+\textbf{6.} Rond af op 2 decimalen, tenzij anders vermeld.
+\end{letop}
+
+\textbf{Veel succes!}
+
+% ---------------------------------------------------------------- Vraag 1
+\breedtes{82/18}
+\begin{tabular}{lc}
+\hline
+Vraag 1 · Variabelen en soorten data & \_\_\_ / 3 \\
+\hline
+\end{tabular}
+
+Een jeugdhuis bevraagt zijn bezoekers. Noteer bij elke vraag de onderzochte variabele, of die kwalitatief of kwantitatief is en welk soort data erbij hoort (numeriek, categorisch geordend of categorisch niet-geordend).
+
+\breedtes{42/20/20/18}
+\begin{tabular}{llll}
+\hline
+Enquêtevraag & Variabele & Kwalitatief of kwantitatief? & Soort data \\
+\hline
+a) Hoeveel keer per maand kom je naar het jeugdhuis? & & & \\
+b) Hoe tevreden ben je over het aanbod? (zeer ontevreden – ontevreden – neutraal – tevreden – zeer tevreden) & & & \\
+c) In welke gemeente woon je? & & & \\
+\hline
+\end{tabular}
+
+\textbf{(1 punt per rij)}
+
+\begin{oplossing}
+\textbf{Oplossing 1} \quad a) aantal bezoeken per maand; kwantitatief; numeriek (1). b) tevredenheid over het aanbod; kwalitatief; categorisch geordend (1). c) gemeente van de bezoeker; kwalitatief; categorisch niet-geordend (1). Per rij 1 punt als variabele, soort variabele én soort data juist zijn; ½ punt als één van de drie ontbreekt of fout is.
+\end{oplossing}
+
+% ---------------------------------------------------------------- Vraag 2
+\breedtes{82/18}
+\begin{tabular}{lc}
+\hline
+Vraag 2 · Steekproef en populatie & \_\_\_ / 3 \\
+\hline
+\end{tabular}
+
+Een woonzorgcentrum telt 240 bewoners. Om te weten hoeveel uur per dag bewoners aan activiteiten deelnemen, worden 40 geloote bewoners bevraagd. Het gemiddelde is 2,6 uur en de standaardafwijking is 0,8 uur.
+
+\textbf{a)} Noteer de populatie, de steekproef, $N$ en $n$. \hfill \textbf{\_\_\_ / 1} \lijn \lijn 
+
+\textbf{b)} Noteer de twee getallen uit de tekst met de juiste symbolen en zeg welke populatieparameters ze schatten. \hfill \textbf{\_\_\_ / 1} \lijn \lijn 
+
+\textbf{c)} Een ander team bevraagt 40 andere geloote bewoners en vindt een gemiddelde van 2,9 uur. Verklaar waarom dit niet verwonderlijk is. \hfill \textbf{\_\_\_ / 1} \lijn \lijn 
+
+\begin{oplossing}
+\textbf{Oplossing 2} \quad a) Populatie: alle 240 bewoners ($N=240$); steekproef: de 40 geloote bewoners ($n=40$) (1). b) $\overline{x}=2{,}6$ uur schat $\mu$ en $s=0{,}8$ uur schat $\sigma$ (1). c) Steekproefvariabiliteit: een andere steekproef bevat andere bewoners en geeft door toeval een ander resultaat (1).
+\end{oplossing}
+
+% ---------------------------------------------------------------- Vraag 3
+\breedtes{82/18}
+\begin{tabular}{lc}
+\hline
+Vraag 3 · Steekproefontwerp & \_\_\_ / 4 \\
+\hline
+\end{tabular}
+
+Een kinderopvang wil weten hoe de 240 ouders de nieuwe openingsuren vinden. Er wordt een vragenlijst aan de ingang gehangen. Er worden 36 vragenlijsten ingevuld.
+
+\textbf{a)} Bereken het responspercentage. \hfill \textbf{\_\_\_ / 1} \lijn \lijn 
+
+\textbf{b)} Welke twee problemen bedreigen de representativiteit van deze steekproef? Gebruik de juiste begrippen. \hfill \textbf{\_\_\_ / 1} \lijn \lijn 
+
+\textbf{c)} Beschrijf hoe de opvang een enkelvoudig aselecte steekproef van 60 ouders kan trekken. \hfill \textbf{\_\_\_ / 2} \lijn \lijn \lijn 
+
+\begin{oplossing}
+\textbf{Oplossing 3} \quad a) $\dfrac{36}{240}\cdot 100\,\%=15\,\%$ (1). b) Vrijwillige respons (enkel wie wil, vult in) en een te grote non-respons (slechts 15 \% antwoordt); eventueel ook: opportunistisch (enkel wie langs de ingang komt) (1, beide vermeld). c) Elke ouder (gezin) een nummer van 1 tot 240 geven (1) en met de computer lukraak 60 verschillende nummers trekken, zodat elke ouder dezelfde kans heeft (1).
+\end{oplossing}
+
+% ---------------------------------------------------------------- Vraag 4
+\breedtes{82/18}
+\begin{tabular}{lc}
+\hline
+Vraag 4 · Misleidingen en valkuilen & \_\_\_ / 3 \\
+\hline
+\end{tabular}
+
+Een jeugdbeweging publiceert deze grafiek.
+
+\begin{center}
+\includegraphics[width=0.7\textwidth]{figuren/exam_staaf.png}
+\end{center}
+
+\textbf{a)} Welke misleiding zie je en wat is het misleidende gevolg? \hfill \textbf{\_\_\_ / 1} \lijn \lijn 
+
+\textbf{b)} Bereken met ICT met hoeveel procent het aantal leden steeg van 2019 tot en met 2023. \hfill \textbf{\_\_\_ / 1} \lijn \lijn 
+
+\textbf{c)} Het aandeel leden dat op kamp gaat, stijgt van 30 \% naar 45 \%. Druk die stijging uit in procentpunt en in procent. \hfill \textbf{\_\_\_ / 1} \lijn \lijn 
+
+\begin{oplossing}
+\textbf{Oplossing 4} \quad a) De verticale as begint bij 58 in plaats van bij 0 (afgeknotte as) (½); daardoor lijkt de groei veel groter dan ze is (½). b) $\dfrac{72-60}{60}=0{,}20=20\,\%$ (1). c) 15 procentpunt (½) en $\dfrac{45-30}{30}=0{,}50=50\,\%$ (½).
+\end{oplossing}
+
+% ---------------------------------------------------------------- Vraag 5
+\breedtes{82/18}
+\begin{tabular}{lc}
+\hline
+Vraag 5 · Samenhang en causaliteit & \_\_\_ / 3 \\
+\hline
+\end{tabular}
+
+Welke redeneerfout zit in elke uitspraak? Kies \textbf{O} (omgekeerde oorzakelijke richting), \textbf{T} (toevallige samenhang) of \textbf{D} (derde variabele) en leg uit.
+
+\textbf{a)} Kinderen die vaker naar de logopedist gaan, hebben meer spraakproblemen. De logopedist veroorzaakt dus spraakproblemen. \hfill \textbf{\_\_\_ / 1} \lijn \lijn 
+
+\textbf{b)} Wijken met meer speeltuinen hebben meer fietsendiefstallen. Noem ook de verborgen variabele. \hfill \textbf{\_\_\_ / 1} \lijn \lijn 
+
+\textbf{c)} Het aantal films met een hond in de hoofdrol en het aantal doctoraten in de biologie stijgen over de jaren samen. \hfill \textbf{\_\_\_ / 1} \lijn \lijn 
+
+\begin{oplossing}
+\textbf{Oplossing 5} \quad a) O: wie spraakproblemen heeft, gaat naar de logopedist (1). b) D: bijvoorbeeld het aantal inwoners (of kinderen of de grootte van de wijk): grote wijken hebben alles meer (1: juiste letter én variabele). c) T: er is geen enkel inhoudelijk verband, de samenhang is toeval (1).
+\end{oplossing}
+
+% ---------------------------------------------------------------- Vraag 6
+\breedtes{82/18}
+\begin{tabular}{lc}
+\hline
+Vraag 6 · Observationeel of experimenteel onderzoek & \_\_\_ / 4 \\
+\hline
+\end{tabular}
+
+Een school wil weten of een dagelijkse ‘beweegpauze’ de conditie van leerlingen verbetert. Er worden 200 leerlingen \emph{door loting} verdeeld in een experimentele groep (100, met beweegpauze) en een controlegroep (100, zonder). Na een trimester wordt de conditie gemeten.
+
+\breedtes{28/18/18/18/18}
+\begin{tabular}{lcccc}
+\hline
+ & verbeterd & gelijk & verslechterd & totaal \\
+\hline
+experimentele groep & 70 & 20 & 10 & \\
+controlegroep & 45 & 40 & 15 & \\
+totaal & & & & \\
+\hline
+\end{tabular}
+
+\textbf{a)} Is dit observationeel of experimenteel onderzoek? Waar speelt randomisatie een rol? \hfill \textbf{\_\_\_ / 1} \lijn \lijn 
+
+\textbf{b)} Welk percentage van elke groep verbeterde? \hfill \textbf{\_\_\_ / 1} \lijn \lijn 
+
+\textbf{c)} Welk percentage van de leerlingen met een verslechterde conditie zat in de controlegroep? \hfill \textbf{\_\_\_ / 1} \lijn \lijn 
+
+\textbf{d)} Mag je besluiten dat de beweegpauze de conditie verbetert? Verklaar. \hfill \textbf{\_\_\_ / 1} \lijn \lijn 
+
+\begin{oplossing}
+\textbf{Oplossing 6} \quad (Totalen: 115 – 60 – 25 – 200.) a) Experimenteel (de onderzoekers grijpen in); randomisatie bij het verdelen van de leerlingen in de twee groepen door loting (1). b) Experimentele groep: $\frac{70}{100}=70{,}0\,\%$; controlegroep: $\frac{45}{100}=45{,}0\,\%$ (1). c) $\frac{15}{25}=60{,}0\,\%$ (1). d) Ja, mits goed uitgevoerd: de groepen zijn door loting gevormd en dus vergelijkbaar, dus het verschil (70 \% tegenover 45 \%) is waarschijnlijk te wijten aan de beweegpauze; causaliteit is mogelijk (1).
+\end{oplossing}
+
+% ---------------------------------------------------------------- Vraag 7
+\breedtes{82/18}
+\begin{tabular}{lc}
+\hline
+Vraag 7 · Centrummaten & \_\_\_ / 4 \\
+\hline
+\end{tabular}
+
+De wachttijden (in minuten) van 9 patiënten op de spoeddienst: 8 – 15 – 5 – 48 – 9 – 12 – 8 – 14 – 11.
+
+\textbf{a)} Bereken het gemiddelde, de mediaan en de modus. \hfill \textbf{\_\_\_ / 3} \lijn \lijn \lijn \lijn 
+
+\textbf{b)} Welke centrummaat geeft het best weer hoe lang een ‘typische’ patiënt wacht? Verklaar. \hfill \textbf{\_\_\_ / 1} \lijn \lijn 
+
+\begin{oplossing}
+\textbf{Oplossing 7} \quad Rangschikken: 5 – 8 – 8 – 9 – 11 – 12 – 14 – 15 – 48. a) $\overline{x}=\dfrac{130}{9}\approx 14{,}4$ min (1); Med = 11 min (1); Mod = 8 min (1). b) De mediaan (11 min): het gemiddelde wordt omhooggetrokken door de uitschieter 48 min; acht van de negen patiënten wachten korter dan het gemiddelde (1).
+\end{oplossing}
+
+% ---------------------------------------------------------------- Vraag 8
+\breedtes{82/18}
+\begin{tabular}{lc}
+\hline
+Vraag 8 · Spreidingsmaten & \_\_\_ / 5 \\
+\hline
+\end{tabular}
+
+\textbf{a)} Acht jongeren hebben er 4 – 7 – 9 – 10 – 12 – 13 – 15 – 22 minuten voor nodig om in te slapen. Bepaal de variatiebreedte, $Q_1$, $Q_3$ en de interkwartielafstand en interpreteer de interkwartielafstand. \hfill \textbf{\_\_\_ / 3} \lijn \lijn \lijn \lijn 
+
+\textbf{b)} De vijf leden van een team hebben respectievelijk 3 – 4 – 6 – 9 – 13 jaar ervaring. Ze vormen de volledige populatie. Bereken de variantie en de standaardafwijking. Toon je tussenstappen. \hfill \textbf{\_\_\_ / 2} \lijn \lijn \lijn 
+
+\begin{oplossing}
+\textbf{Oplossing 8} \quad a) $R=22-4=18$ min (1). Onderste helft 4 – 7 – 9 – 10: $Q_1=\dfrac{7+9}{2}=8$; bovenste helft 12 – 13 – 15 – 22: $Q_3=\dfrac{13+15}{2}=14$ (1). $\Delta Q=14-8=6$ min: de middelste 50 \% van de jongeren heeft inslaaptijden die hoogstens 6 minuten uit elkaar liggen (1). b) $\mu=\dfrac{35}{5}=7$; afwijkingen $-4$, $-3$, $-1$, 2, 6; kwadraten 16, 9, 1, 4, 36 (som 66); $\sigma^2=\dfrac{66}{5}=13{,}2$ jaar² (1); $\sigma=\sqrt{13{,}2}\approx 3{,}63$ jaar (1).
+\end{oplossing}
+
+% ---------------------------------------------------------------- Vraag 9
+\breedtes{82/18}
+\begin{tabular}{lc}
+\hline
+Vraag 9 · De normale verdeling als model & \_\_\_ / 3 \\
+\hline
+\end{tabular}
+
+De lengte van 150 vijfjarigen werd gemeten. Hieronder het histogram. Het gemiddelde is 110,0 cm, de mediaan is 110 cm en de standaardafwijking is 4,7 cm.
+
+\begin{center}
+\includegraphics[width=0.7\textwidth]{figuren/exam_hist.png}
+\end{center}
+
+\textbf{a)} Is de normale verdeling een goed model voor deze data? Verklaar met de grafiek en de kengetallen. \hfill \textbf{\_\_\_ / 1} \lijn \lijn 
+
+\textbf{b)} Noteer het model $N(\mu,\sigma)$. \hfill \textbf{\_\_\_ / 1} \lijn \lijn 
+
+\textbf{c)} Tussen welke lengtes liggen volgens het model ongeveer 95 \% van de vijfjarigen? \hfill \textbf{\_\_\_ / 1} \lijn \lijn 
+
+\begin{oplossing}
+\textbf{Oplossing 9} \quad a) Ja: het histogram is klokvormig en symmetrisch met één top, en gemiddelde en mediaan zijn gelijk (110) (1). b) $N(110{,}0;\;4{,}7)$ (1). c) $\mu\pm 2\sigma$: $110\pm 9{,}4$, dus tussen ongeveer 100,6 cm en 119,4 cm (1).
+\end{oplossing}
+
+% ---------------------------------------------------------------- Vraag 10
+\breedtes{82/18}
+\begin{tabular}{lc}
+\hline
+Vraag 10 · Kansen bij de normale verdeling & \_\_\_ / 4 \\
+\hline
+\end{tabular}
+
+De duur (in minuten) van een ochtendronde van een thuisverpleegkundige is normaal verdeeld met $\mu=88$ en $\sigma=14$. Gebruik GeoGebra of Excel.
+
+\textbf{a)} Bereken de kans dat een ronde langer dan 100 minuten duurt. Noteer het model, schets de gearceerde oppervlakte en schrijf een antwoordzin. \hfill \textbf{\_\_\_ / 2} \lijn \lijn \lijn \lijn \lijn 
+
+\textbf{b)} Bereken de kans dat een ronde tussen 70 en 105 minuten duurt. \hfill \textbf{\_\_\_ / 1} \lijn \lijn 
+
+\textbf{c)} De verpleegkundige doet 60 rondes. Hoeveel rondes duren naar verwachting langer dan 100 minuten? \hfill \textbf{\_\_\_ / 1} \lijn \lijn 
+
+\begin{oplossing}
+\textbf{Oplossing 10} \quad a) $X\sim N(88;\,14)$ en schets met de rechterstaart vanaf 100 gearceerd (1). $P(X>100)\approx 0{,}1957$: ongeveer 19,6 \% van de rondes duurt langer dan 100 minuten (1: resultaat én antwoordzin). b) $P(70<X<105)\approx 0{,}7884$ (1). c) $60\cdot 0{,}1957\approx 11{,}7$, dus ongeveer 12 rondes (1).
+\end{oplossing}
+
+% ---------------------------------------------------------------- Vraag 11
+\breedtes{82/18}
+\begin{tabular}{lc}
+\hline
+Vraag 11 · Casus: het schoolrestaurant & \_\_\_ / 4 \\
+\hline
+\end{tabular}
+
+De leerlingenraad wil weten hoe tevreden de 600 leerlingen zijn over het schoolrestaurant. Ze vragen aan 12 leerlingen die op woensdag in de refter zitten een score op 10: 6 – 7 – 5 – 8 – 9 – 7 – 6 – 4 – 8 – 7 – 9 – 5.
+
+\textbf{a)} Bereken met ICT het gemiddelde, de standaardafwijking (steekproef) en de mediaan. \hfill \textbf{\_\_\_ / 2} \lijn \lijn \lijn 
+
+\textbf{b)} Is deze steekproef representatief voor alle leerlingen? Geef twee redenen. \hfill \textbf{\_\_\_ / 1} \lijn \lijn 
+
+\textbf{c)} Schrijf in twee zinnen een voorzichtig besluit voor de directie. \hfill \textbf{\_\_\_ / 1} \lijn \lijn 
+
+\begin{oplossing}
+\textbf{Oplossing 11} \quad a) $\overline{x}=6{,}75$ (1); $s\approx 1{,}60$ en Med = 7 (1). b) Nee: opportunistische steekproef (enkel wie op woensdag in de refter zit, dus niet de leerlingen die elders eten) en een kleine steekproef ($n=12$ van 600); eventueel ook: de leerlingen werden niet door loting gekozen (1 voor twee redenen). c) Bijvoorbeeld: ‘De 12 bevraagde leerlingen geven gemiddeld 6,75 op 10, met een standaardafwijking van 1,60. Omdat de steekproef klein en niet aselect is, mag dit niet zomaar veralgemeend worden naar alle leerlingen; een nieuwe, geloote steekproef is aangewezen.’ (1: cijfers, voorzichtigheid, advies.)
+\end{oplossing}
+
+\pagina
+
+\begin{oplossing}
+\textbf{DOCENTENPAGINA · Correctie-afspraken, tijdsverdeling en doelenmatrix}
+
+\textbf{Totaal:} 40 punten. \textbf{Behaald:} vanaf 20 / 40.
+\end{oplossing}
+
+\begin{oplossing}
+\textbf{Correctie-afspraken (aanpasbaar volgens het evaluatiebeleid)}
+
+• Een juist eindantwoord zonder de gevraagde berekening of redenering krijgt niet de volle punten.
+
+• Een doorrekenfout wordt één keer aangerekend: volgt de leerling daarna zijn eigen resultaat correct, dan krijgt hij de punten voor de verdere stappen.
+
+• Een ontbrekende eenheid of verkeerde afronding: ½ punt aftrek per vraag, met een maximum van 1 punt per vraag.
+
+• Bij kansvragen (vraag 10 en vraag 11) is de volledige score enkel mogelijk met model, schets en antwoordzin (zie de verdeling per vraag).
+
+• Gebruik van het rekentoestel, GeoGebra of Excel is toegestaan; de uitkomsten kunnen licht verschillen door afronding of een andere kwartielmethode. Voor $Q_1$ en $Q_3$ geldt de methode uit de les: mediaan van de onderste en bovenste helft.
+\end{oplossing}
+
+\begin{oplossing}
+\textbf{Tijdsverdeling (richtlijn, samen 75 minuten)}
+
+Vraag 1: 4 min · vraag 2: 4 min · vraag 3: 6 min · vraag 4: 5 min · vraag 5: 5 min · vraag 6: 6 min · vraag 7: 6 min · vraag 8: 9 min · vraag 9: 5 min · vraag 10: 7 min · vraag 11: 8 min. Dat is samen 65 minuten werktijd, plus 10 minuten voor lezen, schetsen en nalezen.
+\end{oplossing}
+
+\begin{oplossing}
+\textbf{Doelenmatrix}
+
+• \textbf{Kengetallen en basisbegrippen (hoofdstuk 1 en 2):} vraag 1 (variabelen en data), vraag 7 (centrummaten), vraag 8 (spreidingsmaten), vraag 2b (steekproefgrootheden en populatieparameters).
+
+• \textbf{LPD 11 (representativiteit en steekproeven):} vraag 2, vraag 3, vraag 11b.
+
+• \textbf{LPD 12 (samenhang en causaliteit, experiment):} vraag 5 en vraag 6.
+
+• \textbf{LPD 13 (normale verdeling als model):} vraag 9.
+
+• \textbf{LPD 14 (kansen bij de normale verdeling):} vraag 10.
+
+• \textbf{LPD 1 – 4:} beschrijven van fenomenen met wiskundige begrippen (vragen 1, 4, 11), problemen oplossen met antwoordzin (vragen 10 en 11), ICT (vragen 4b, 7, 10, 11a) en communiceren/uitleggen (vragen 5, 6d, 11c).
+
+\textbf{Punten per doel:} basis en kengetallen (vraag 1, 7, 8 en 2b) 3 + 4 + 5 + 1 = 13 · LPD 11 (vraag 2a en 2c, 3, 11b) 2 + 4 + 1 = 7 · LPD 12 (vraag 5 en 6) 3 + 4 = 7 · LPD 13 (vraag 9) 3 · LPD 14 (vraag 10) 4 · misleidingen en ICT (vraag 4) 3 · casus (vraag 11a en 11c) 3. Totaal 13 + 7 + 7 + 3 + 4 + 3 + 3 = 40.
+\end{oplossing}
+
+\end{document}
