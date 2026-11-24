@@ -1,0 +1,11 @@
+dotplot A mean 20.0 sd_pop 3.38
+dotplot B mean 20.0 sd_pop 8.37
+dotplot C mean 20.0 sd_pop 0.89
+hist A n 300 mean 177.2 med 177.0 sd 6.4
+hist B n 300 mean 3060.1 med 2750.0 sd 1945.8
+hist C n 300 mean 37.7 med 31.5 sd 30.9
+hist D n 300 mean 3.6 med 4.0 sd 1.6
+toets hist P n 200 mean 25.0 med 25.0 sd 5.0
+toets hist Q n 200 mean 12.6 med 10.0 sd 11.1
+baby [68.2, 69.3, 70.3, 71.0, 71.7, 71.7, 71.8, 72.0, 72.7, 73.3, 73.1, 72.8, 73.2, 74.2, 74.0, 73.6, 74.3, 74.2, 74.6, 74.8, 75.0, 75.7, 75.7, 75.9, 76.5, 77.0, 76.6, 77.5, 78.0, 79.5]
+baby: n=30 som=2218.2 mean=73.9400 med=74.1 modes=([71.7, 74.2, 75.7], 2) Q1=72.0 Q3=75.7 dQ=3.700000000000003 R=11.299999999999997 var_pop=6.5011 sd_pop=2.5497 var_s=6.7252 sd_s=2.5933

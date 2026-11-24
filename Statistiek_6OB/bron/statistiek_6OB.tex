@@ -1,0 +1,26 @@
+\documentclass{article}
+% ------------------------------------------------------------------
+%  Statistiek 6OB - remediëringsbundel  (LaTeX-bron, wordt met pandoc naar Word omgezet)
+%  \gat{woord}   : invulplaats voor de leerling / antwoord in de docentenversie
+%  \lijn         : antwoordlijn
+%  \pagina       : nieuwe pagina
+%  oplossing     : omgeving die enkel in de docentenversie verschijnt
+% ------------------------------------------------------------------
+\newcommand{\lijn}{\par LIJN\par}
+\newcommand{\gat}[1]{\textsc{#1}}
+\newcommand{\pagina}{\par PAGEBREAK\par}
+\newcommand{\breedtes}[1]{\par BREEDTE:#1\par}
+
+\begin{document}
+\input{voorwoord}
+\input{level0}
+\input{level1}
+\input{level2}
+\input{level3}
+\input{level4}
+\input{level5}
+\input{level6}
+\input{level7}
+\input{toets}
+\input{bijlage}
+\end{document}
