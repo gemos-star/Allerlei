@@ -4,6 +4,8 @@ set -e
 cd "$(dirname "$0")"
 python3 figs.py > figdata.txt
 python3 figs_examen.py
+python3 kruiswoord.py 2>/dev/null
+python3 figs_kruiswoord.py
 python3 maak_referentie.py
 UIT=..
 bouw() { # $1=versie  $2=bestandsnaam  $3=titel

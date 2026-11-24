@@ -61,6 +61,17 @@ def make_box(tbl,fill,col):
         trPr=row._tr.get_or_add_trPr(); trPr.append(OxmlElement('w:cantSplit'))
         # kaders mogen over pagina's heen lopen
 
+TBLPR_ORDER=["tblStyle","tblpPr","tblOverlap","bidiVisual","tblStyleRowBandSize","tblStyleColBandSize","tblW","jc","tblCellSpacing","tblInd","tblBorders","shd","tblLayout","tblCellMar","tblLook","tblCaption","tblDescription"]
+TCPR_ORDER=["cnfStyle","tcW","gridSpan","hMerge","vMerge","tcBorders","shd","noWrap","tcMar","textDirection","tcFitText","vAlign","hideMark"]
+def sorteer_kinderen(el,volgorde):
+    kids=list(el)
+    def sleutel(k):
+        naam=k.tag.split("}")[1]
+        return volgorde.index(naam) if naam in volgorde else len(volgorde)
+    kids_sorted=sorted(kids,key=sleutel)
+    for k in kids: el.remove(k)
+    for k in kids_sorted: el.append(k)
+
 def is_kruiswoord(tbl):
     if len(tbl.columns)<8: return False
     return sum(1 for r in tbl.rows for c in r.cells if c.text.strip()=="#")>10
@@ -88,6 +99,23 @@ def maak_kruiswoord(tbl):
                 for r in p.runs:
                     r.font.size=Pt(7); r.font.bold=False; r.font.color.rgb=RGBColor(0x1B,0x2B,0x4B)
         # geen kopstijl
+    # vaste, gelijke kolombreedte (1 cm) zodat Word het raadsel correct tekent
+    breedte=565
+    kol=len(tbl.columns)
+    for gc in tbl._tbl.tblGrid.findall(qn("w:gridCol")): gc.set(qn("w:w"),str(breedte))
+    for e in tblPr.findall(qn("w:tblW")): tblPr.remove(e)
+    w=OxmlElement("w:tblW"); w.set(qn("w:w"),str(breedte*kol)); w.set(qn("w:type"),"dxa"); tblPr.append(w)
+    for e in tblPr.findall(qn("w:jc")): tblPr.remove(e)
+    for e in tblPr.findall(qn("w:tblCellMar")): tblPr.remove(e)
+    m=OxmlElement("w:tblCellMar")
+    for side in ("top","left","bottom","right"):
+        e=OxmlElement(f"w:{side}"); e.set(qn("w:w"),"20"); e.set(qn("w:type"),"dxa"); m.append(e)
+    tblPr.append(m)
+    for row in tbl.rows:
+        for tc in row._tr.findall(qn("w:tc")):
+            tcPr=tc.get_or_add_tcPr()
+            for e in tcPr.findall(qn("w:tcW")): tcPr.remove(e)
+            cw=OxmlElement("w:tcW"); cw.set(qn("w:w"),str(breedte)); cw.set(qn("w:type"),"dxa"); tcPr.insert(0,cw)
     # tblHeader weghalen indien aanwezig
     for row in tbl.rows:
         trPr=row._tr.get_or_add_trPr()
@@ -181,6 +209,12 @@ fp.alignment=2
 r0=fp.add_run("pagina "); style_runs([r0])
 style_runs(add_field(fp,"PAGE"))
 fp.paragraph_format.line_spacing=1.0
+
+for tbl in doc.tables:
+    sorteer_kinderen(tbl._tbl.tblPr,TBLPR_ORDER)
+    for tc in tbl._tbl.iter(qn("w:tc")):
+        tcPr=tc.tcPr
+        if tcPr is not None: sorteer_kinderen(tcPr,TCPR_ORDER)
 
 doc.core_properties.title=titel; doc.core_properties.author="Remediëring wiskunde 6OB"; doc.core_properties.language="nl-BE"
 doc.save(dst)

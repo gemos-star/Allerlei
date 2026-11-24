@@ -83,6 +83,7 @@ for r in range(h):
         if (r+r0,c+c0) in grid: row.append(str(nummers[(r,c)]) if (r,c) in nummers else "")
         else: row.append("\\#")
     rows.append(row)
-json.dump({"hor":hor,"ver":ver,"h":h,"b":b,"rows":rows},open("kruiswoord.json","w"),ensure_ascii=False)
+letters=[[grid.get((r+r0,c+c0),"") for c in range(b)] for r in range(h)]
+json.dump({"hor":hor,"ver":ver,"h":h,"b":b,"rows":rows,"letters":letters},open("kruiswoord.json","w"),ensure_ascii=False)
 print(json.dumps({"hor":hor,"ver":ver}),file=sys.stderr)
 for row in rows: print(" ".join(x if x else "." for x in row).replace("\\#","#"),file=sys.stderr)
