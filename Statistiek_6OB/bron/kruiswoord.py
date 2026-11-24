@@ -1,6 +1,6 @@
 """Genereert een kruiswoordraadsel (eenvoudige backtracking) en schrijft het als LaTeX-tabel."""
 import random, sys, json
-WOORDEN=["STEEKPROEF","CAUSALITEIT","MEDIAAN","HYPOTHESE","UITSCHIETER","POPULATIE","GAUSSKROMME","VARIANTIE"]
+WOORDEN=["STEEKPROEF","CAUSALITEIT","MEDIAAN","HYPOTHESE","UITSCHIETER","POPULATIE","RANDOMISATIE","VARIANTIE"]
 
 def probeer(woorden,rng):
     grid={}   # (r,c)->letter
