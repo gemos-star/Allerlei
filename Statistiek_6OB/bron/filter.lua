@@ -28,6 +28,11 @@ function Pandoc(doc)
 
   local nieuw = doc:walk({
     Div = function(el)
+      for _, cl in ipairs(el.classes) do
+        if cl == "docentenpagina" then
+          if not docent then return {} else return el.content end
+        end
+      end
       local s, c = stijl(el)
       if not s then return nil end
       if c == "oplossing" then

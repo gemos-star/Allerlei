@@ -61,7 +61,41 @@ def make_box(tbl,fill,col):
         trPr=row._tr.get_or_add_trPr(); trPr.append(OxmlElement('w:cantSplit'))
         # kaders mogen over pagina's heen lopen
 
+def is_kruiswoord(tbl):
+    if len(tbl.columns)<8: return False
+    return sum(1 for r in tbl.rows for c in r.cells if c.text.strip()=="#")>10
+
+def maak_kruiswoord(tbl):
+    set_tbl_borders(tbl,"1B2B4B"); full_width(tbl)
+    tblPr=tbl._tbl.tblPr
+    lay=OxmlElement("w:tblLayout"); lay.set(qn("w:type"),"fixed"); tblPr.append(lay)
+    for row in tbl.rows:
+        trPr=row._tr.get_or_add_trPr()
+        h=OxmlElement("w:trHeight"); h.set(qn("w:val"),"430"); h.set(qn("w:hRule"),"exact"); trPr.append(h)
+        for cell in row.cells:
+            tcPr=cell._tc.get_or_add_tcPr()
+            for e in tcPr.findall(qn("w:shd")): tcPr.remove(e)
+            txt=cell.text.strip()
+            if txt=="#":
+                set_cell_shade(cell,"1B2B4B")
+                for p in cell.paragraphs:
+                    for r in p.runs: r.text=""
+            else:
+                set_cell_shade(cell,"FFFFFF")
+            for p in cell.paragraphs:
+                p.paragraph_format.line_spacing=1.0; p.paragraph_format.space_after=Pt(0); p.paragraph_format.space_before=Pt(0)
+                p.alignment=0; p.paragraph_format.keep_with_next=True
+                for r in p.runs:
+                    r.font.size=Pt(7); r.font.bold=False; r.font.color.rgb=RGBColor(0x1B,0x2B,0x4B)
+        # geen kopstijl
+    # tblHeader weghalen indien aanwezig
+    for row in tbl.rows:
+        trPr=row._tr.get_or_add_trPr()
+        for e in trPr.findall(qn("w:tblHeader")): trPr.remove(e)
+
 for tbl in doc.tables:
+    if is_kruiswoord(tbl):
+        maak_kruiswoord(tbl); continue
     bs=box_style(tbl)
     if bs in BOX:
         make_box(tbl,*BOX[bs]); continue
@@ -99,6 +133,18 @@ for tbl in doc.tables:
             for p in cell.paragraphs: p.paragraph_format.keep_with_next=True
         sp=OxmlElement("w:p"); ppr=OxmlElement("w:pPr"); s=OxmlElement("w:spacing"); s.set(qn("w:before"),"0"); s.set(qn("w:after"),"0"); s.set(qn("w:line"),"200"); s.set(qn("w:lineRule"),"exact"); ppr.append(s); sp.append(ppr)
         tbl._tbl.addprevious(sp)
+
+# lege tussenruimte vóór een kop met 'pagina-einde ervoor' verwijderen (voorkomt lege pagina's)
+body=doc.element.body
+for p in list(body.iterchildren(qn("w:p"))):
+    ppr=p.find(qn("w:pPr"))
+    if ppr is None: continue
+    ps=ppr.find(qn("w:pStyle"))
+    if ps is not None and ps.get(qn("w:val"))=="Heading1":
+        prev=p.getprevious()
+        while prev is not None and prev.tag in (qn("w:bookmarkStart"),qn("w:bookmarkEnd")): prev=prev.getprevious()
+        if prev is not None and prev.tag==qn("w:p") and not "".join(prev.itertext()).strip() and prev.find(".//"+qn("w:br")) is None:
+            body.remove(prev)
 
 # taal en koptekst/voettekst
 styles_el=doc.styles.element
